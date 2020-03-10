@@ -1,0 +1,31 @@
+# TODO: Examples with Dataloader
+
+type Todo {
+  id: String!
+  title: String!
+  details: String!
+  createdAt: String!
+  updatedAt: String
+}
+
+input CreateTodoInput {
+  title: String!
+  details: String!
+}
+
+input UpdateTodoInput {
+  uuid: String!
+  title: String
+  details: String
+}
+
+type Query {
+  todo(uuid: String!): Todo
+  todos: [Todo!]!
+}
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  deleteTodo(uuid: String!): Boolean!
+}
